@@ -1,0 +1,101 @@
+.App {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Animated background particles */
+.App::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255, 225, 230, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(225, 240, 255, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(240, 225, 255, 0.2) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+  animation: backgroundShift 20s ease-in-out infinite;
+}
+
+@keyframes backgroundShift {
+  0%, 100% {
+    transform: translateX(0) translateY(0);
+  }
+  25% {
+    transform: translateX(-10px) translateY(-10px);
+  }
+  50% {
+    transform: translateX(10px) translateY(10px);
+  }
+  75% {
+    transform: translateX(-5px) translateY(5px);
+  }
+}
+
+/* Smooth section transitions */
+main {
+  position: relative;
+  z-index: 1;
+}
+
+/* Section spacing and transitions */
+section {
+  position: relative;
+  transition: all 0.6s ease-in-out;
+  scroll-margin-top: 2rem;
+}
+
+/* Enhanced scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Page transition effects */
+.page-transition {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.page-transition.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Improved container spacing */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+/* Enhanced visual hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: var(--spacing-md);
+}
+
+p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .App {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .App {
+    font-size: 12px;
+  }
+}

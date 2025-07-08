@@ -1,0 +1,228 @@
+.footer-section {
+  background: linear-gradient(135deg, 
+    rgba(26, 32, 44, 0.95) 0%,
+    rgba(45, 55, 72, 0.95) 50%,
+    rgba(26, 32, 44, 0.95) 100%
+  );
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: var(--spacing-xl) 0 var(--spacing-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-content {
+  position: relative;
+  z-index: 2;
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+}
+
+.footer-brand {
+  text-align: left;
+}
+
+.brand-title {
+  font-family: var(--font-script);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-white);
+  margin-bottom: var(--spacing-xs);
+  background: linear-gradient(45deg, var(--neon-coral), var(--neon-pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.brand-subtitle {
+  color: var(--text-muted);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.link-group h4 {
+  color: var(--text-white);
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+}
+
+.link-group ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.link-group li {
+  margin-bottom: var(--spacing-xs);
+}
+
+.link-group a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.link-group a:hover {
+  color: var(--neon-coral);
+  transform: translateX(5px);
+}
+
+.link-group a::before {
+  content: '';
+  position: absolute;
+  left: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--neon-coral);
+  transition: width 0.3s ease;
+}
+
+.link-group a:hover::before {
+  width: 10px;
+}
+
+.footer-divider {
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.2) 50%, 
+    transparent 100%
+  );
+  margin: var(--spacing-lg) 0;
+  transform-origin: left;
+}
+
+.footer-bottom {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.footer-credits {
+  justify-self: start;
+}
+
+.made-with-love {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.developer-name {
+  color: var(--neon-coral);
+  font-weight: 600;
+  font-family: var(--font-heading);
+}
+
+.footer-tech {
+  justify-self: center;
+}
+
+.tech-stack {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-year {
+  justify-self: end;
+}
+
+.copyright {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.footer-decorations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.decoration-star {
+  position: absolute;
+  font-size: 1.2rem;
+  color: var(--neon-yellow);
+  filter: drop-shadow(0 0 8px currentColor);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    text-align: center;
+  }
+  
+  .footer-links {
+    justify-content: center;
+  }
+  
+  .footer-bottom {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+    text-align: center;
+  }
+  
+  .footer-credits,
+  .footer-tech,
+  .footer-year {
+    justify-self: center;
+  }
+  
+  .brand-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-section {
+    padding: var(--spacing-lg) 0 var(--spacing-md);
+  }
+  
+  .made-with-love {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .tech-stack,
+  .copyright {
+    font-size: 0.8rem;
+  }
+  
+  .decoration-star {
+    font-size: 1rem;
+  }
+}

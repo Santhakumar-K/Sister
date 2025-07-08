@@ -1,0 +1,226 @@
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: var(--gradient-sunset);
+  overflow: hidden;
+}
+
+.hero-content {
+  text-align: center;
+  z-index: 2;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+/* Hero Image Styles */
+.hero-image-container {
+  position: relative;
+  margin-bottom: var(--spacing-lg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-frame {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  border: 4px solid rgba(255, 255, 255, 0.4);
+  box-shadow:
+    0 0 40px rgba(255, 107, 107, 0.5),
+    0 0 80px rgba(255, 107, 107, 0.3),
+    inset 0 0 40px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+.hero-image:hover {
+  transform: scale(1.08);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 3;
+}
+
+.sparkle-effect {
+  font-size: 2rem;
+  color: var(--neon-yellow);
+  filter: drop-shadow(0 0 10px currentColor);
+}
+
+/* Lottie Animation Container */
+.lottie-container {
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  z-index: 1;
+  opacity: 0.8;
+}
+
+.greeting-wrapper {
+  margin-bottom: var(--spacing-xl);
+}
+
+.greeting-text {
+  font-family: var(--font-script);
+  font-size: clamp(2rem, 6vw, 4rem);
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: var(--spacing-md);
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+.name-animation {
+  display: flex;
+  justify-content: center;
+  gap: 0.1em;
+  margin-bottom: var(--spacing-lg);
+}
+
+.letter {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 400;
+  background: linear-gradient(45deg, var(--neon-yellow), var(--neon-coral), var(--neon-pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+  display: inline-block;
+  position: relative;
+}
+
+.letter::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, var(--neon-yellow), var(--neon-coral), var(--neon-pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: blur(10px);
+  z-index: -1;
+  opacity: 0.7;
+}
+
+.floating-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-element {
+  position: absolute;
+  font-size: 1.5rem;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+  user-select: none;
+}
+
+.celebrate-btn {
+  font-size: 1.2rem;
+  padding: var(--spacing-md) var(--spacing-xl);
+  margin: var(--spacing-lg) 0;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(45deg, var(--neon-coral), var(--neon-pink));
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.celebrate-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.celebrate-btn:hover::before {
+  left: 100%;
+}
+
+.hero-subtitle {
+  font-family: var(--font-script);
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  margin-top: var(--spacing-md);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .image-frame {
+    width: 280px;
+    height: 280px;
+  }
+
+  .lottie-container {
+    top: -40px;
+    right: -40px;
+  }
+
+  .celebrate-btn {
+    font-size: 1rem;
+    padding: var(--spacing-sm) var(--spacing-lg);
+  }
+
+  .floating-element {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .name-animation {
+    flex-wrap: wrap;
+  }
+
+  .image-frame {
+    width: 250px;
+    height: 250px;
+  }
+
+  .lottie-container {
+    display: none;
+  }
+
+  .floating-element {
+    font-size: 1rem;
+  }
+
+  .hero-content {
+    gap: var(--spacing-md);
+  }
+}

@@ -1,0 +1,70 @@
+.floating-balloons {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.balloon {
+  position: absolute;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  box-shadow: 
+    inset -10px -10px 0 rgba(0, 0, 0, 0.1),
+    0 5px 15px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  pointer-events: auto;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 10px currentColor);
+}
+
+.balloon::before {
+  content: '';
+  position: absolute;
+  top: 15%;
+  left: 20%;
+  width: 20%;
+  height: 30%;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  filter: blur(2px);
+}
+
+.balloon-string {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 30px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent);
+  border-radius: 1px;
+}
+
+.balloon-string::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .balloon {
+    transform: scale(0.8);
+  }
+}
+
+@media (max-width: 480px) {
+  .balloon {
+    transform: scale(0.6);
+  }
+}

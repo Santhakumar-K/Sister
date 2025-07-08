@@ -1,0 +1,268 @@
+.virtual-cake-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--pastel-mint), var(--pastel-pink));
+  position: relative;
+  overflow: hidden;
+}
+
+.virtual-cake-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 0, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(255, 107, 107, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  animation: backgroundShift 10s ease-in-out infinite;
+}
+
+.cake-content {
+  text-align: center;
+  z-index: 2;
+  position: relative;
+}
+
+.cake-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  background: linear-gradient(45deg, var(--neon-coral), var(--neon-yellow));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--spacing-md);
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+.cake-instruction {
+  font-family: var(--font-script);
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  margin-bottom: var(--spacing-xl);
+}
+
+.cake-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+.birthday-cake {
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+}
+
+.cake-layer {
+  position: relative;
+  border-radius: var(--radius-md);
+  margin: 0 auto;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+}
+
+.cake-bottom {
+  width: 200px;
+  height: 60px;
+  background: linear-gradient(45deg, #8B4513, #A0522D);
+  box-shadow: inset 0 -10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cake-middle {
+  width: 160px;
+  height: 50px;
+  background: linear-gradient(45deg, var(--neon-coral), #FF69B4);
+  margin-top: -5px;
+  box-shadow: inset 0 -8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.cake-top {
+  width: 120px;
+  height: 40px;
+  background: linear-gradient(45deg, var(--neon-yellow), #FFD700);
+  margin-top: -5px;
+  box-shadow: inset 0 -6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.cake-decoration {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.6) 0px,
+    rgba(255, 255, 255, 0.6) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  transform: translateY(-50%);
+}
+
+.candles {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 15px;
+}
+
+.candle {
+  width: 8px;
+  background: linear-gradient(to bottom, #FFD700, #FFA500);
+  border-radius: 4px 4px 0 0;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.flame {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 15px;
+  background: radial-gradient(circle, var(--neon-yellow) 0%, var(--neon-coral) 70%);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  filter: blur(1px);
+}
+
+.slice-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.8), transparent);
+  transform: translateX(-50%);
+  transform-origin: top;
+}
+
+.birthday-cake.sliced .cake-layer {
+  animation: cakeSlice 0.5s ease-out;
+}
+
+@keyframes cakeSlice {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.surprise-message {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  min-width: 300px;
+}
+
+.surprise-message h3 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--neon-coral);
+  margin-bottom: var(--spacing-sm);
+}
+
+.surprise-message p {
+  font-family: var(--font-body);
+  color: #333;
+  margin-bottom: var(--spacing-xs);
+  font-weight: 500;
+}
+
+.cake-note {
+  font-family: var(--font-script);
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  margin-top: var(--spacing-lg);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cake-bottom {
+    width: 160px;
+    height: 50px;
+  }
+  
+  .cake-middle {
+    width: 130px;
+    height: 40px;
+  }
+  
+  .cake-top {
+    width: 100px;
+    height: 35px;
+  }
+  
+  .candles {
+    gap: 12px;
+  }
+  
+  .candle {
+    width: 6px;
+  }
+  
+  .surprise-message {
+    min-width: 250px;
+    padding: var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .cake-bottom {
+    width: 140px;
+    height: 45px;
+  }
+  
+  .cake-middle {
+    width: 110px;
+    height: 35px;
+  }
+  
+  .cake-top {
+    width: 80px;
+    height: 30px;
+  }
+  
+  .candles {
+    gap: 10px;
+  }
+  
+  .surprise-message {
+    min-width: 200px;
+    padding: var(--spacing-sm);
+  }
+  
+  .surprise-message h3 {
+    font-size: 1.2rem;
+  }
+  
+  .surprise-message p {
+    font-size: 0.9rem;
+  }
+}
